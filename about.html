@@ -11,13 +11,13 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/sasa_logo.webp" alt="SASA Logo">
                 <div class="logo-text">
                     <h1>SASA</h1>
                     <p>South Asian Scholar's Academy</p>
                 </div>
-            </div>
+            </a>
             <nav class="nav">
                 <a href="index.html" class="nav-link">HOME</a>
                 <a href="about.html" class="nav-link active">ABOUT SASA</a>
@@ -25,6 +25,11 @@
                 <a href="gallery.html" class="nav-link">GALLERY</a>
                 <a href="notice.html" class="nav-link">NOTICE</a>
             </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
@@ -83,10 +88,25 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>South Asian Scholar's Academy @copyright reserved 2022. <a href="#">Developer info</a></p>
+                <p>South Asian Scholar's Academy @copyright reserved 2022. <a href="https://razexclaw.github.io/builder.aman/">Developer info</a></p>
             </div>
         </div>
     </footer>
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.nav');
+        if (mobileMenuBtn && nav) {
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
-
